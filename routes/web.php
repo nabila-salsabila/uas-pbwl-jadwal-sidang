@@ -21,23 +21,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/golongan', [App\Http\Controllers\GolonganController::class, 'index']);
-Route::get('/golongan/create', [App\Http\Controllers\GolonganController::class, 'create']);
-Route::post('/golongan', [App\Http\Controllers\GolonganController::class, 'store']);
-Route::get('/golongan/edit/{id}', [App\Http\Controllers\GolonganController::class, 'edit']);
-Route::patch('/golongan/{id}', [App\Http\Controllers\GolonganController::class, 'update']);
-Route::delete('/golongan/{id}', [App\Http\Controllers\GolonganController::class, 'destroy']);
+Route::get('/pengadilan', [App\Http\Controllers\PengadilanController::class, 'index']);
+Route::get('/pengadilan/create', [App\Http\Controllers\PengadilanController::class, 'create']);
+Route::post('/pengadilan', [App\Http\Controllers\PengadilanController::class, 'store']);
+Route::get('/pengadilan/edit/{id}', [App\Http\Controllers\PengadilanController::class, 'edit']);
+Route::patch('/pengadilan/{id}', [App\Http\Controllers\PengadilanController::class, 'update']);
+Route::delete('/pengadilan/{id}', [App\Http\Controllers\PengadilanController::class, 'destroy']);
 
-Route::get('/users', [App\Http\Controllers\UsersController::class, 'index']);
-Route::get('/users/create', [App\Http\Controllers\UsersController::class, 'create']);
-Route::post('/users', [App\Http\Controllers\UsersController::class, 'store']);
-Route::get('/users/edit/{id}', [App\Http\Controllers\UsersController::class, 'edit']);
-Route::patch('/users/{id}', [App\Http\Controllers\UsersController::class, 'update']);
-Route::delete('/users/{id}', [App\Http\Controllers\UsersController::class, 'destroy']);
+Route::get('/jadwal', [App\Http\Controllers\JadwalController::class, 'index']);
+Route::get('/jadwal/create', [App\Http\Controllers\JadwalController::class, 'create']);
+Route::post('/jadwal', [App\Http\Controllers\JadwalController::class, 'store']);
+Route::get('/jadwal/edit/{id}', [App\Http\Controllers\JadwalController::class, 'edit']);
+Route::patch('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'update']);
+Route::delete('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'destroy']);
 
-Route::get('/pelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
-Route::get('/pelanggan/create', [App\Http\Controllers\PelangganController::class, 'create']);
-Route::post('/pelanggan', [App\Http\Controllers\PelangganController::class, 'store']);
-Route::get('/pelanggan/edit/{id}', [App\Http\Controllers\PelangganController::class, 'edit']);
-Route::patch('/pelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'update']);
-Route::delete('/pelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'destroy']);
+Route::get('/peserta', [App\Http\Controllers\PesertaController::class, 'index']);
+Route::get('/peserta/create', [App\Http\Controllers\PesertaController::class, 'create']);
+Route::post('/peserta', [App\Http\Controllers\PesertaController::class, 'store']);
+Route::get('/peserta/edit/{id}', [App\Http\Controllers\PesertaController::class, 'edit']);
+Route::patch('/peserta/{id}', [App\Http\Controllers\PesertaController::class, 'update']);
+Route::delete('/peserta/{id}', [App\Http\Controllers\PesertaController::class, 'destroy']);

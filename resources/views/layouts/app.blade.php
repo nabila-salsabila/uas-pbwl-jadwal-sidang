@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -9,17 +9,68 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" href="{{ asset('icons/pengadilan.png')  }}" type="image/x-icon">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .navbar {
+            background-color: #007bff; /* Warna biru, sesuaikan dengan preferensi Anda */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff; /* Warna teks putih */
+        }
+
+        .navbar-toggler-icon {
+            border-color: #fff; /* Warna ikon toggler putih */
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff; /* Warna teks putih */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #eaeaea; /* Warna teks saat hover */
+        }
+
+        .dropdown-menu {
+            border: 1px solid #ccc;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .py-4 {
+            min-height: calc(100vh - 150px);
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -51,21 +102,15 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/users') }}">Users</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/golongan') }}">Golongan</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/pelanggan') }}">Pelanggan</a>
-                                    </li>
-
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/pengadilan') }}">Pengadilan</a>
+                                    <a class="dropdown-item" href="{{ url('/jadwal') }}">Jadwal Sidang</a>
+                                    <a class="dropdown-item" href="{{ url('/peserta') }}">Peserta Sidang</a>
+                                    <div class="dropdown-divider"></div>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -76,11 +121,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-
-                                    
                                 </div>
-
-                                
                             </li>
                         @endguest
                     </ul>
@@ -91,7 +132,14 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="text-center text-muted py-3">
+        <div class="container">
+            &copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.
+        </div>
+    </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
 </body>
 </html>

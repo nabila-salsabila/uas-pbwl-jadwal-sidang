@@ -6,15 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /** 
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('tb_golongan', function (Blueprint $table) {
+        Schema::create('tb_pengadilan', function (Blueprint $table) {
             $table->id();
-            $table->string('gol_kode', 10);
-            $table->string('gol_nama', 50);
+            $table->string('nama_pengadilan', 100);
+            $table->string('alamat', 100);
+            $table->string('telepon', 13);
+            $table->string('email', 100);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_golongan');
+        Schema::dropIfExists('tb_pengadilan');
     }
 };
